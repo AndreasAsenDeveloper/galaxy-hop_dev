@@ -225,6 +225,7 @@
       "name": "Name",
       "email": "E-Mail",
       "phone": "Telefonnummer",
+      "order": "Bestellnummer",
       "message": "Nachricht",
       "submit": "Absenden",
       "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
