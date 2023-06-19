@@ -1,0 +1,91 @@
+<div class="contact-form form-vertical">
+    {%- assign formId = 'ContactForm' -%}
+    {% form 'contact', id: formId %}
+    {% include 'form-status', form: form, form_id: formId %}
+
+    <div class="grid grid--half-gutters">
+        <div class="grid__item medium-up--one-half">
+            <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+            <input type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+        </div>
+        <div class="grid__item medium-up--one-half">
+            <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+            <input
+                type="email"
+                id="{{ formId }}-email"
+                name="contact[email]"
+                autocorrect="off"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                aria-required="true"
+                {%- if form.errors contains 'email' -%}
+                    class="input--error"
+                    aria-invalid="true"
+                    aria-describedby="{{ formId }}-email-error"
+                {%- endif -%}
+            >
+            {%- if form.errors contains 'email' -%}
+            <span id="{{ formId}}-email-error" class="input-error-message">
+                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                {% include 'icon-error' %}
+                <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </span>
+            {%- endif -%}
+        </div>
+    </div>
+
+    <div class="grid grid--half-gutters">
+        <div class="grid__item medium-up--one-half">
+            <label for="{{ formId }}-business_name">{{ 'contact.form.business_name' | t }}</label>
+            <input type="text" id="{{ formId }}-business_name" name="contact[{{ 'contact.form.business_name' | t }}]" value="{% if form[business_name] %}{{ form[business_name] }}{% elsif customer %}{{ customer.business_name }}{% endif %}">
+        </div>
+        <div class="grid__item medium-up--one-half">
+            <label for="{{ formId }}-website">{{ 'contact.form.website' | t }}</label>
+            <input type="text" id="{{ formId }}-website" name="contact[{{ 'contact.form.website' | t }}]" value="{% if form[website] %}{{ form[website] }}{% elsif customer %}{{ customer.website }}{% endif %}">
+        </div>
+    </div>
+
+    <label for="{{ formId }}-business_type">{{ 'contact.form.business_type' | t }}</label>
+    <select id="{{ formId }}-business_type" name="contact[{{ 'contact.form.business_type' | t }}]">
+        {% assign businessTypeOptions = section.settings.business_type_options | split: ',' %}
+        {% for option in businessTypeOptions %}
+            <option value="{{ option | strip }}">{{ option | strip }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+    <input type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+    {% if section.settings.show_order_field %}
+        <label for="{{ formId }}-order">{{ 'contact.form.order' | t }}</label>
+        <input type="tel" id="{{ formId }}-order" name="contact[{{ 'contact.form.order' | t }}]" pattern="[0-9\-]*" value="{% if form[order] %}{{ form[order] }}{% elsif customer %}{{ customer.order }}{% endif %}">
+    {% endif %}
+
+    <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+    <textarea rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+    <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+    {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_order_field",
+      "label": "Show Order Input Field",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "business_type_options",
+      "label": "Business Type Options",
+      "default": "Option 1, Option 2, Option 3",
+      "info": "Enter the available options for the business type select field, separated by commas."
+    }
+  ]
+}
+{% endschema %}

@@ -224,6 +224,9 @@
     "form": {
       "name": "Name",
       "email": "Email",
+      "business_name": "Business Name",
+      "website": "Website",
+      "business_type": "Business Type",
       "phone": "Phone Number",
       "order": "Order Number",
       "message": "Message",
