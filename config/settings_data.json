@@ -33,7 +33,7 @@
           "title": "Image with text overlay",
           "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
           "button_label": "Shop Now",
-          "button_link": "shopify:\/\/products\/galaxy-box-™"
+          "button_link": "shopify:\/\/products\/galaxy-box"
         }
       },
       "feature-row": {
@@ -183,6 +183,7 @@
           "3643b0a6-1d98-47b6-8dd9-be05a2d27d3a"
         ],
         "settings": {
+          "heading": "Instagram",
           "section_height": "small"
         }
       },
@@ -265,6 +266,106 @@
           "heading": "You may also like",
           "show_vendor": false
         }
+      },
+      "contact-order-wholesale": {
+        "type": "contact-order-wholesale",
+        "settings": {
+          "show_order_field": true,
+          "business_type_options": "Retail Store, e-Commerce, U.S. Distributor"
+        }
+      },
+      "faq": {
+        "type": "faq",
+        "blocks": {
+          "32edf619-94af-4a38-bacb-22fa4c36ffd2": {
+            "type": "headline",
+            "settings": {
+              "title": "Order questions"
+            }
+          },
+          "5d8f85e3-6a6e-46b4-ade3-2d0d310bebbd": {
+            "type": "QA",
+            "settings": {
+              "title": "order tracking",
+              "question": "How can I track my order?",
+              "answer": "<p>To track your order, log in to your account and go to the \"Order History\" section. There, you will find the status of your order and a tracking number if applicable. Click on the tracking number to see the real-time status of your shipment.<\/p>"
+            }
+          },
+          "e3821579-b057-42e1-b4ad-ad8bcfcadd1b": {
+            "type": "QA",
+            "settings": {
+              "title": "order cancel",
+              "question": "Can I cancel my order after it has been placed?",
+              "answer": "<p>Yes, you can cancel your order, but it must be done before the item is shipped. Please contact our customer support team as soon as possible with your order details to request a cancellation. If the item has already been shipped, you can initiate a return once it's delivered.<\/p>"
+            }
+          },
+          "1106d150-6cf9-44cf-badb-286478ebda1a": {
+            "type": "QA",
+            "settings": {
+              "title": "payment methods",
+              "question": "What payment methods do you accept?",
+              "answer": "<p>We accept various payment methods, including credit\/debit cards (Visa, Mastercard, American Express), PayPal, and bank transfers. At checkout, you can choose the most convenient payment option for you.<\/p>"
+            }
+          },
+          "f49dcd22-f7c5-4b05-934b-a1d4cd3da5cc": {
+            "type": "headline",
+            "settings": {
+              "title": "Product questions"
+            }
+          },
+          "63c412e2-40ba-40fb-957b-8cb8db781616": {
+            "type": "QA",
+            "settings": {
+              "title": "warranties",
+              "question": "Do you offer product warranties?",
+              "answer": "<p>Yes, we provide warranties for most of our products. The duration and coverage of the warranty may vary depending on the product type. Please check the product page or the product's documentation for specific warranty information.<\/p>"
+            }
+          },
+          "6e9e7058-6ada-4b63-a8c6-35f5e7cf8b33": {
+            "type": "QA",
+            "settings": {
+              "title": "box",
+              "question": "What is a galaxy box, and what does it contain?",
+              "answer": "<p>A galaxy box is a specially curated collection of cosmic-themed items that often include products like unique space-themed artwork, celestial jewelry, astronomy gadgets, and other cosmic surprises. Each galaxy box is designed to immerse you in the wonders of the universe and make you feel connected to the cosmos.<\/p>"
+            }
+          },
+          "18dbf291-a48e-4f12-9cdd-446535b9c97b": {
+            "type": "QA",
+            "settings": {
+              "title": "limited edition",
+              "question": "How often do you release new galaxy boxes, and are they limited edition?",
+              "answer": "<p>We strive to keep our galaxy box collection fresh and exciting. New galaxy boxes are released periodically, typically every month or quarter. Each galaxy box is thoughtfully crafted and might be available in limited quantities, making them somewhat exclusive. If you come across a galaxy box that piques your interest, we recommend getting it sooner rather than later to avoid missing out.<\/p>"
+            }
+          },
+          "6467f6e3-50bc-42dd-b19b-4626ae13d90d": {
+            "type": "QA",
+            "settings": {
+              "title": "Wie funktioniert Bombi?",
+              "question": "Wie funktioniert Bombi?",
+              "answer": "<p>Sie ist sonsign.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "32edf619-94af-4a38-bacb-22fa4c36ffd2",
+          "5d8f85e3-6a6e-46b4-ade3-2d0d310bebbd",
+          "e3821579-b057-42e1-b4ad-ad8bcfcadd1b",
+          "1106d150-6cf9-44cf-badb-286478ebda1a",
+          "f49dcd22-f7c5-4b05-934b-a1d4cd3da5cc",
+          "63c412e2-40ba-40fb-957b-8cb8db781616",
+          "6e9e7058-6ada-4b63-a8c6-35f5e7cf8b33",
+          "18dbf291-a48e-4f12-9cdd-446535b9c97b",
+          "6467f6e3-50bc-42dd-b19b-4626ae13d90d"
+        ],
+        "settings": {
+          "heading": "YOUR QUESTIONS ANSWERED"
+        }
+      },
+      "contact-order": {
+        "type": "contact-order",
+        "settings": {
+          "show_order_field": true
+        }
       }
     },
     "content_for_index": [
@@ -274,7 +375,14 @@
       "8cc24cd9-c2f9-49e6-9c5f-1cec9eb439f7",
       "quotes",
       "image-bar"
-    ]
+    ],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {
