@@ -5,6 +5,7 @@
 	{% endif %}
 {% endfor %}
 
+
 <div class="product-template__container page-width"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
@@ -296,9 +297,45 @@
         >
         </div>
 
-        <div class="product-single__description rte">
-          {{ product.description }}
-        </div>
+        {% comment %} tab selector {% endcomment %}
+          <div class="container">
+            <div class="selector">
+              <div class="tab tab-active">
+                {{ 'products.product.product_description' | t }}
+              </div>
+              {% if product.metafields.info.details_us %}
+                <div class="tab">
+                  {{ 'products.product.product_details' | t }}
+                </div>
+              {% endif %}
+              {% if product.metafields.info.shipping %}
+                <div class="tab">
+                  {{ 'products.product.product_shipping' | t }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="content">
+              <div id="Description" class="content-body show-active">
+                {{ product.description }}
+              </div>
+              {% if product.metafields.info.details_us %}
+              {% assign current_variant_region = product.selected_or_first_available_variant.option2 %}
+                <div id="Details" class="content-body">
+                  <div id="details-us" class="{% unless current_variant_region == 'US' %}hide{% endunless %}">
+                    {{product.metafields.info.details_us}}
+                  </div>
+                  <div id="details-eu" class="{% unless current_variant_region == 'EU' %}hide{% endunless %}">
+                    {{product.metafields.info.details_eu}}
+                  </div>
+                </div>
+              {% endif %}
+              {% if product.metafields.info.shipping %}
+                <div id="Shipping" class="content-body">
+                  {{product.metafields.info.shipping}}
+                </div>
+              {% endif %}
+            </div>
+          </div>
 
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}

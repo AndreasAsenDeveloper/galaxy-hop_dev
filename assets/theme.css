@@ -7050,3 +7050,46 @@ padding: 0 1em;
 max-height: 100vh;
 padding:1em;
 }
+
+/* tab selector at product level styling */
+
+.container {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+}
+.selector {
+  display: flex;
+}
+.tab {
+  padding: 10px;
+}
+.tab:hover {
+  cursor: pointer;
+  background-color: #484848;
+  color: white;
+}
+.content {
+  padding: 10px;
+  padding-top: 30px;
+  height: 350px;
+}
+.content-body {
+  display: none;
+}
+.show-active {
+  display: block;
+  animation: fade 1s;
+}
+.tab-active {
+  background-color: #484848;
+  color: white;
+}
+@keyframes fade {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity:1;
+  }
+}

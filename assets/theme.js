@@ -766,6 +766,7 @@ slate.Variants = (function() {
       this._updateImages(variant);
       this._updatePrice(variant);
       this._updateSKU(variant);
+      this._updateDetails(variant);
       this.currentVariant = variant;
 
       if (this.enableHistoryState) {
@@ -880,6 +881,26 @@ slate.Variants = (function() {
 
       if (!masterSelect) return;
       masterSelect.value = variant.id;
+    },
+
+    _updateDetails: function(variant) {
+      var details_us = document.getElementById('details-us');
+      var details_eu = document.getElementById('details-eu');
+
+      if(details_us && details_eu)
+      {
+        if(variant.option2 == "US")
+        {
+          details_us.classList.remove('hide');
+          details_eu.classList.add('hide');
+        }
+        else if(variant.option2 == "EU")
+        {
+          details_eu.classList.remove('hide');
+          details_us.classList.add('hide');
+        }
+
+      }
     }
   });
 
@@ -9684,4 +9705,37 @@ function removeImageLoadingAnimation(image) {
   if (imageWrapper) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
+}
+
+// tab selector at product level script
+// function to remove show-active class & add to clicked
+function setActiveContent(el) {
+  // select all .content-body
+  var contentBodies = document.getElementsByClassName('content-body');
+  // remove .show-active
+  for (var contentBody of contentBodies) {
+    contentBody.classList.remove('show-active');
+  }
+  // add .show-active (back) to clicked 
+  document.
+  getElementById(el.textContent.trim())
+    .classList.add('show-active');
+}
+
+function setActiveTab(el) {
+  var tabs = document.getElementsByClassName('tab');
+  for (var tab of tabs) {
+    tab.classList.remove('tab-active');
+  }
+  el.classList.add('tab-active');
+}
+
+// select .tab class, and loop through
+var tabs = document.getElementsByClassName('tab');
+for (var tab of tabs) {
+  // add click listener to each tab
+  tab.addEventListener('click', function (e) {
+    setActiveContent(e.currentTarget);
+    setActiveTab(e.currentTarget);
+  })
 }
