@@ -7093,3 +7093,14 @@ padding:1em;
       opacity:1;
   }
 }
+
+/* custom styling about us page */
+
+.custom-block {
+  margin: 20px;
+  padding: 10px;
+}
+
+.custom-block.text-right {
+  text-align: right;
+}

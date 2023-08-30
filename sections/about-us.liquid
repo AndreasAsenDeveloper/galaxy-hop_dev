@@ -1,0 +1,54 @@
+<div class="aboutus">
+    {% for block in section.blocks %}
+        <div class="custom-block {% if block.settings.alignment == 'right' %}text-right{% endif %}">
+            <h2 class="title-about-us">{{block.settings.title}}</div>
+            <img src="{{ block.settings.image | img_url }}">
+            <div class="text-about-us">{{block.settings.text_about_us}}</div>
+        </div>        
+    {% endfor %}
+</div>
+{% schema %}
+{
+    "name": "content for about us",
+    "settings": [
+        {
+            "type": "text",
+            "label": "heading for faq",
+            "id": "heading"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "content",
+            "name": "title/image/text",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "title",
+                    "id": "title"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "image",
+                    "id": "image"
+                },
+                {
+                    "type": "richtext",
+                    "label": "text for about us",
+                    "id": "text_about_us"            
+                },
+                {
+                    "type": "radio",
+                    "label": "Paragraph Alignment",
+                    "id": "alignment",
+                    "default": "left",
+                    "options": [
+                        {"value": "left", "label": "Left"},
+                        {"value": "right", "label": "Right"}
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
