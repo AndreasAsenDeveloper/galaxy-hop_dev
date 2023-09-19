@@ -2100,8 +2100,8 @@ body.prevent-scrolling {
   width: 100%; }
 
 .page-width {
-  padding-left: 55px;
-  padding-right: 55px; }
+  padding-left: 0px;
+  padding-right: 0px; }
   @media only screen and (max-width: 749px) {
     .page-width {
       padding-left: 22px;
@@ -7099,8 +7099,16 @@ padding:1em;
 .custom-block {
   margin: 20px;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-block.text-right {
   text-align: right;
+  flex-direction: row-reverse;
+}
+
+.flex-container-two {
+  padding: 0px 40px;
 }

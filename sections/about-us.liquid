@@ -1,9 +1,13 @@
 <div class="aboutus">
     {% for block in section.blocks %}
         <div class="custom-block {% if block.settings.alignment == 'right' %}text-right{% endif %}">
-            <h2 class="title-about-us">{{block.settings.title}}</div>
-            <img src="{{ block.settings.image | img_url }}">
-            <div class="text-about-us">{{block.settings.text_about_us}}</div>
+            <div class="flex-container-one">
+                <img src="{{ block.settings.image | img_url: '5000x5000' }}">
+            </div>
+            <div class="flex-container-two">
+                <h2 class="title-about-us">{{block.settings.title}}</h2>
+                <p class="text-about-us">{{block.settings.text_about_us}}</p>
+            </div>
         </div>        
     {% endfor %}
 </div>
